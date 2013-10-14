@@ -103,7 +103,7 @@ xmlhttp.onreadystatechange=function()
   {
   if (xmlhttp.readyState==4 && xmlhttp.status==200)
     {
-
+	document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
 	//Parses the response of the php function.
 	var JSONResponse = JSON.parse(xmlhttp.responseText);
 	//Create the string that will we displayed at the right column.
@@ -118,6 +118,7 @@ xmlhttp.onreadystatechange=function()
   }
 
 // Calls the PHP function. Sends parameters via GET.
+//xmlhttp.open("GET","retrieve_one.php?pmid="+str+"&kw="+ str2,true);
 xmlhttp.open("GET","retrieve_one.php?pmid="+str+"&kw="+ str2,true);
 xmlhttp.send();
 }

@@ -1,21 +1,94 @@
 <?php
 //get the parameters from GET URL
 
-$pmid = $_GET["pmid"];
+$pmid_input = $_GET["pmid"];
 $keywords = $_GET["kw"];
-$pmid2 = $_GET["pmid2"];
+$pmid_input2 = $_GET["pmid2"];
 $keywords2 = $_GET["kw2"];
-$pmid3 = $_GET["pmid3"];
+$pmid_input3 = $_GET["pmid3"];
 $keywords3 = $_GET["kw3"];
-//echo $pmid;
-//echo $keywords;
-//echo $pmid2;
-//echo $keywords2;
-//echo $pmid3;
-//echo $keywords3;
 
-// Create the urls form the pmids number (not yet urls)
-// TODO: process long and short urls provided as input
+### This function accepts long URLs, short URLs and PMIDs
+### Process numeric inputs
+if (is_numeric($pmid_input)) {
+        		$pmid_url = "http://www.ncbi.nlm.nih.gov/pubmed/".$pmid_input;
+				$pmid = $pmid_input;	
+    			} 
+### Process url inputs
+else{ 
+	### Process short url input when given, transforming it to long url
+	if (get_headers($pmid_input, 7)){		
+		###Retrieve long URL from headers of the HTTP response
+		$longURL = get_headers($pmid_input, 7);
+		try{
+			if (isset($longURL['Location'])){
+				$pmid_input = $longURL['Location'];
+			}
+		}
+		catch (Exception $e) {
+		}
+	} 
+
+	###Extract the PMID number from the long URL. It can be with or without the "?term=" substring
+	$pmid= str_replace('http://www.ncbi.nlm.nih.gov/pubmed/','',$pmid_input);
+	$pmid= str_replace('?term=','',$pmid);
+}
+
+### This function accepts long URLs, short URLs and PMIDs
+### Process numeric inputs
+if (is_numeric($pmid_input2)) {
+        		$pmid_url2 = "http://www.ncbi.nlm.nih.gov/pubmed/".$pmid_input2;
+				$pmid2 = $pmid_input2;	
+    			} 
+### Process url inputs
+else{ 
+	### Process short url input when given, transforming it to long url
+	if (get_headers($pmid_input2, 7)){		
+		###Retrieve long URL from headers of the HTTP response
+		$longURL2 = get_headers($pmid_input2, 7);
+		try{
+			if (isset($longURL2['Location'])){
+				$pmid_input2 = $longURL2['Location'];
+			}
+		}
+		catch (Exception $e) {
+		}
+	} 
+
+	###Extract the PMID number from the long URL. It can be with or without the "?term=" substring
+	$pmid2= str_replace('http://www.ncbi.nlm.nih.gov/pubmed/','',$pmid_input2);
+	$pmid2= str_replace('?term=','',$pmid2);
+}
+
+### This function accepts long URLs, short URLs and PMIDs
+### Process numeric inputs
+if (is_numeric($pmid_input3)) {
+        		$pmid_url3 = "http://www.ncbi.nlm.nih.gov/pubmed/".$pmid_input3;
+				$pmid3 = $pmid_input3;	
+    			} 
+### Process url inputs
+else{ 
+	### Process short url input when given, transforming it to long url
+	if (get_headers($pmid_input3, 7)){		
+		###Retrieve long URL from headers of the HTTP response
+		$longURL3 = get_headers($pmid_input3, 7);
+		try{
+			if (isset($longURL3['Location'])){
+				$pmid_input3 = $longURL3['Location'];
+			}
+		}
+		catch (Exception $e) {
+		}
+	} 
+
+	###Extract the PMID number from the long URL. It can be with or without the "?term=" substring
+	$pmid3= str_replace('http://www.ncbi.nlm.nih.gov/pubmed/','',$pmid_input3);
+	$pmid3= str_replace('?term=','',$pmid3);
+}
+
+
+
+// Create the urls form the pmid numbers 
 $xml_url = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=".$pmid."&retmode=xml";
 $xml_url2 = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=".$pmid2."&retmode=xml";
 $xml_url3 = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=".$pmid3."&retmode=xml";

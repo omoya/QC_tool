@@ -27,7 +27,7 @@
   $db = $conn->medb;
 
   // access collection
-  $collection = $db->dev;
+  $collection = $db->dev2;
 
   // insert a new document 
   
