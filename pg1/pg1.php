@@ -207,7 +207,7 @@ else
   }
   
 //Performs the GET call
-xmlhttp.open("GET","submit_pg1.php?id="+json_input.pmid + "&kw="+json_input.kw + "&title="+json_input.title + "&abstract="+json_input.abstract + "&id2="+json_input.pmid2 + "&kw2="+json_input.kw2 + "&title2="+json_input.title2 + "&abstract2="+json_input.abstract2 + "&id3="+json_input.pmid3 + "&kw3="+json_input.kw3 + "&title3="+json_input.title3 + "&abstract3="+json_input.abstract3,true);
+xmlhttp.open("GET","submit_pg1.php?id="+json_input.pmid + "&kw="+json_input.keywords + "&title="+json_input.title + "&abstract="+json_input.abstract + "&id2="+json_input.pmid2 + "&kw2="+json_input.keywords2 + "&title2="+json_input.title2 + "&abstract2="+json_input.abstract2 + "&id3="+json_input.pmid3 + "&kw3="+json_input.keywords3 + "&title3="+json_input.title3 + "&abstract3="+json_input.abstract3,true);
 xmlhttp.send();
 }
 </script>

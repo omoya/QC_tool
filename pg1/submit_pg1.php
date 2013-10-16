@@ -27,7 +27,7 @@
   $db = $conn->medb;
 
   // access collection
-  $collection = $db->dev2;
+  $collection = $db->dev3;
 
   // insert a new document 
   
@@ -38,7 +38,8 @@
 										"publication"=> array( 
 															"PMID"=>$pmid,
 															"title"=> $title,
-															"abstract"=>$abstract
+															"abstract"=>$abstract,
+															"keywords"=>$keywords
 															)));
   
   
@@ -53,7 +54,8 @@
 										"publication"=> array( 
 															"PMID"=>$pmid2,
 															"title"=> $title2,
-															"abstract"=>$abstract2
+															"abstract"=>$abstract2,
+															"keywords"=>$keywords2
 															)));
   
   
@@ -68,7 +70,8 @@
 										"publication"=> array( 
 															"PMID"=>$pmid3,
 															"title"=> $title3,
-															"abstract"=>$abstract3
+															"abstract"=>$abstract3,
+															"keywords"=>$keywords3
 															)));
   
   
@@ -90,7 +93,9 @@
 					<td>PMID</td>
 					<td>Title</td>
 					<td>Abstract</td>
-					<td>Keywords</td>'			
+					<td>Keywords</td>
+					<td>Actions</td>'
+					
 			;
 			
   foreach ($cursor as $obj) {
@@ -101,8 +106,10 @@
 	echo '</td><td>';
     echo  $obj['submission']['publication']['abstract'] . '<br/>';
 	echo '</td><td>';
-//    echo  $obj['submission']['publication']['keywords']. '<br/>';
-	echo '</td></tr>';	
+    echo  $obj['submission']['publication']['keywords']. '<br/>';
+	echo '</td><td>';
+	echo '<button type="button">IMPROVE</button>';
+	echo '</td>.</tr>';
   }
   echo '</tbody></table>';
   
