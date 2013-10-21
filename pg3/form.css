@@ -1,0 +1,32 @@
+/* sizes */
+#main-wrap > div { 
+	min-height: 175px;
+	max-width: 1200px;
+	}
+
+#header {
+    min-height: 40px;
+}
+
+/* layout */
+#main-wrap {
+    /* overflow to handle inner floating block */
+    overflow: hidden;
+}
+
+#sidebar {
+    float: left;
+    width: 45%;
+}
+
+#content-wrap {
+    float: right;
+	width: 45%;
+	margin-right: 20px;
+	padding-right: 25px;
+}
+
+#Table1 {
+    float: left;
+    width: 100%;
+}

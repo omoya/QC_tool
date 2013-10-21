@@ -114,46 +114,12 @@ array2csv($csv_array);
 echo'
 <script language="Javascript">
 
-//This is a test
-function testing()	
-	{
-	alert("Hello");
-	document.getElementById("main-wrap").innerHTML = "Hello";
-	if (window.XMLHttpRequest)
-			{// code for IE7+, Firefox, Chrome, Opera, Safari
-			xmlhttp=new XMLHttpRequest();
-			}
-	else
-			{// code for IE6, IE5
-			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-			}
-	xmlhttp.onreadystatechange=function()
-	  {
-	  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-	    {
-		document.getElementById("main-wrap").innerHTML = xmlhttp.responseText;
-	    }
-	  }
-	alert("Hello2");
-	// Calls the PHP function. Sends parameters via GET.
-	xmlhttp.open("GET","printA.php",true);
-	xmlhttp.send();
-	}
-	
-	// Another test
+
+// Open PG3 for the corresponding abstratct (row number)
 function openPage(nr)	
 	{
-		if (nr > 3){
-			window.location.href = "http://localhost/pg2/printA.php"
-		}
-		else {
-			window.location.href = "http://localhost/pg2/printB.php?pmid=12"
-		}
-	function httpGet()
-	    {
-	    	alert("Hello3");
-	    	window.location.href = "http://localhost/pg2/printB.php?pmid=12"
-	    }
+		var ele = document.getElementsByName("abstract" + nr)[0].innerHTML;
+		window.location.href = "http://localhost/pg3/pg3.php?abstract="+ ele;
 			
 	}
 	
