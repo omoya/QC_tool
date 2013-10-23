@@ -52,40 +52,56 @@
 			<form class="form-group" name="Form1" method="POST">	
 				<table border="0" style="width: 100%;">
 					<thead>
-						<tr>
+						<!-- <tr>
 							<th>Pubmed URL</th>
 							<th>Keywords</th>
-						</tr>
+						</tr>-->
 					</thead>
 					<tbody>
 						<tr>
 							<td>
-								<input type="text" name="url1" />
+								<div class="input-group input-group-lg">
+									<input type="text" name="url1" class="form-control" style = "width:220px;" placeholder="pmid or url"/>
+								</div>
 							</td>
 							<td>
-								<input type="text" name="keywords1" />
+								<div class="input-group input-group-lg">
+									<input type="text" name="keywords1" class="form-control" style = "width:220px;" placeholder="keywords"/>
+								</div>								
 							</td>
 							<td>
 								<input type="submit" value="Check" name="check1" onclick="checkPmid(this.form.url1.value,this.form.keywords1.value); return false;">		
 							</td>						
 						</tr>
+						<tr style = "height:10px;">						
+						</tr>
 						<tr>
 							<td>
-								<input type="text" name="url2" />
+								<div class="input-group input-group-lg">
+									<input type="text" name="url2" class="form-control" style = "width:220px;" placeholder="pmid or url"/>
+								</div>	
 							</td>
 							<td>
-								<input type="text" name="keywords2" />
+								<div class="input-group input-group-lg">
+									<input type="text" name="keywords2" class="form-control" style = "width:220px;" placeholder="keywords"/>
+								</div>	
 							</td>
 							<td>
 								<input type="submit" value="Check" name="check2" onclick="checkPmid(this.form.url2.value,this.form.keywords2.value); return false;">
 							</td>
 						</tr>
+						<tr style = "height:10px;">						
+						</tr>
 						<tr>
 							<td>
-								<input type="text" name="url3" />
+								<div class="input-group input-group-lg">
+									<input type="text" name="url3" class="form-control" style = "width:220px;" placeholder="pmid or url"/>
+								</div>	
 							</td>
 							<td>
-								<input type="text" name="keywords3" />
+								<div class="input-group input-group-lg">
+									<input type="text" name="keywords3" class="form-control" style = "width:220px;" placeholder="keywords"/>
+								</div>	
 							</td>
 							<td>
 								<input type="submit" value="Check" name="check3" onclick="checkPmid(this.form.url3.value,this.form.keywords3.value); return false;">
@@ -106,7 +122,7 @@
 		<footer>
 			<p>&copy; medBiomarkers 2013</p>
 		</footer>
-	</div><!-- /.container -->
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -239,10 +255,10 @@ else
 	//alert("Data were successfully submitted");
     }
   }
-  
 //Performs the GET call
 xmlhttp.open("GET","submit_pg1.php?id="+json_input.pmid + "&kw="+json_input.keywords + "&title="+json_input.title + "&abstract="+json_input.abstract + "&id2="+json_input.pmid2 + "&kw2="+json_input.keywords2 + "&title2="+json_input.title2 + "&abstract2="+json_input.abstract2 + "&id3="+json_input.pmid3 + "&kw3="+json_input.keywords3 + "&title3="+json_input.title3 + "&abstract3="+json_input.abstract3,true);
 xmlhttp.send();
+window.location.href = "http://localhost/bsTests/pg2.php";
 }
 </script>
 
