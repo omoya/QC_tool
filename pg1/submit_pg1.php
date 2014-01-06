@@ -1,5 +1,7 @@
 <?php	
 
+//Testing git collaboration
+
 	$pmid = $_GET["id"];
 	$keywords = $_GET["kw"];
 	$title = $_GET["title"];
